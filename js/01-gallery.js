@@ -3,8 +3,7 @@
 /*рабочая часть*/
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-import * as basicLightbox from 'https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js';
-    
+
 const gallery = galleryItems.map(image => `<a class="gallery__link" href="${image.original}" onclick = "event.preventDefault()"><img class="gallery__image" src = "${image.preview}" data-source="${image.original}" alt = "${image.description}"/></a>`)
     .join("");
 
@@ -20,17 +19,24 @@ function openModal(e) {
     if (!e.target.classList.contains("gallery__image")) {
         return;
     }
-    /*рабочая часть*/
+    
     const dataSource = e.target.getAttribute("data-source")
     console.log(dataSource);
 
-        const instance = basicLightbox.create(`
+    const instance = basicLightbox.create(`
         <img src="${dataSource}"/> 
 
 `)
     instance.show();
-    console.log(instance);    
-        
+    console.log(instance);
+    /*рабочая часть*/
+    
+   document.addEventListener("keydown", closeModal);
+function closeModal(e) {
+    if (e.code === "Escape") {
+        instance.close();
+    }
+}     
     }
 
 
