@@ -40,21 +40,4 @@ function closeModal(e) {
     }
 
 
-/*basicLightbox.create(`<img src="${image.original}"/>`).show()
-    /*document.querySelector(".gallery__image").onclick = () => {
-        
-    }*/
 
-
-/*код с сайта
-const instance = basicLightbox.create(`
-    <div class="modal">
-        <p>
-            Your first lightbox with just a few lines of code.
-            Yes, it's really that simple.
-        </p>
-    </div>
-`)
-
-instance.show()
-*/
