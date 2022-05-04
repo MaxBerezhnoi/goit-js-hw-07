@@ -1,8 +1,10 @@
-import * as basicLightbox from 'https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js'
+
 
 /*рабочая часть*/
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
+import * as basicLightbox from 'https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js';
+    
 const gallery = galleryItems.map(image => `<a class="gallery__link" href="${image.original}" onclick = "event.preventDefault()"><img class="gallery__image" src = "${image.preview}" data-source="${image.original}" alt = "${image.description}"/></a>`)
     .join("");
 
@@ -19,15 +21,15 @@ function openModal(e) {
         return;
     }
     /*рабочая часть*/
+    const dataSource = e.target.getAttribute("data-source")
+    console.log(dataSource);
 
         const instance = basicLightbox.create(`
-    <div class="modal">
-        <img src="${image.original}"/> 
-    </div>
-`)
+        <img src="${dataSource}"/> 
 
-        instance.show()
-            
+`)
+    instance.show();
+    console.log(instance);    
         
     }
 
