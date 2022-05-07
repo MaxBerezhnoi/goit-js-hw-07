@@ -35,7 +35,7 @@ function openModal(e) {
 function closeModal(e) {
     if (e.code === "Escape") {
         instance.close();
-        return;
+        window.removeEventListener('keydown', closeModal);
     }
 }     
 }
