@@ -24,14 +24,21 @@ function openModal(e) {
     console.log(dataSource);
 
     const instance = basicLightbox.create(`
-        <img src="${dataSource}"/> 
+        <img src="${dataSource}"/>`, {
+        onShow: instance => {
+            window.addEventListener("keydown", closeModal);    
+        },
+        onClose: instance => {
+           window.removeEventListener('keydown', closeModal); 
+        }
+        }
 
-`)
+)
     instance.show();
     console.log(instance);
     /*рабочая часть*/
     
-   document.addEventListener("keydown", closeModal);
+    
 function closeModal(e) {
     if (e.code === "Escape") {
         instance.close();
